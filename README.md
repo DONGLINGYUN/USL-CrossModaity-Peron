@@ -13,9 +13,9 @@
 
 `<hello world>`  
 
-
-
-#Test 
+# Test 
 `<1. sh run_test_sysu.sh for SYSU-MM01>`  
 `<2. sh run_test_regdb.sh for RegDB>`  
 
+# Notice 
+When we use the RegDB dataset for training or testing, we need to switch to a different branch network when query is visible or infrared. The Settings on Gallary are similar.
