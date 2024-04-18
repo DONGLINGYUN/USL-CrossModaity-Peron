@@ -7,3 +7,11 @@
 # Demo
 ## requirement
 [requirement](./requirement.txt)
+# Train
+## 1. sh run_train_sysu.sh for SYSU-MM01  
+## 2. sh run_train_regdb.sh for RegD
+
+#Test 
+## 1. sh run_test_sysu.sh for SYSU-MM01
+## 2. sh run_test_regdb.sh for RegDB
+
