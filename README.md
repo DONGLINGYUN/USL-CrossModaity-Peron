@@ -6,4 +6,4 @@
 =======================
 # Demo
 ## requirement
-[requiremetn](./requirement.txt)
+[requirement](./requirement.txt)
