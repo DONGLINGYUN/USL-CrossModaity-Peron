@@ -16,6 +16,6 @@
 
 
 #Test 
-## '<1. sh run_test_sysu.sh for SYSU-MM01>'
-## '<2. sh run_test_regdb.sh for RegDB>'
+`<1. sh run_test_sysu.sh for SYSU-MM01>`  
+`<2. sh run_test_regdb.sh for RegDB>`  
 
