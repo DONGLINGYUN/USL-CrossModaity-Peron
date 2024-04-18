@@ -5,7 +5,7 @@
 ![fig.JPEG](./fig1.JPEG)
 =======================
 # Demo
-## requirement
+Dependency packages that the environment may require
 [requirement](./requirement.txt)
 ==============================================
 # Train
