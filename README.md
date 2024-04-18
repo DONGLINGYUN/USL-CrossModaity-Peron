@@ -7,7 +7,7 @@
 # Demo
 Dependency packages that the environment may require
 [requirement](./requirement.txt)
-==============================================
+
 # Train
 `<1. sh run_train_sysu.sh for SYSU-MM01>`  
 `<2. sh run_train_regdb.sh for RegD >`  
