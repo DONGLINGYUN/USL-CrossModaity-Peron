@@ -5,8 +5,8 @@
 ![fig.JPEG](./fig1.JPEG)
 =======================
 # Requirement
-Dependency packages that the environment may require
-[requirement](./requirement.txt)
+Dependency packages that the environment may require：
+[requirement.txt](./requirement.txt)
 
 # Train
 `<1. sh run_train_sysu.sh for SYSU-MM01>`  
