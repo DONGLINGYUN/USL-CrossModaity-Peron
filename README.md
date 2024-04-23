@@ -19,4 +19,4 @@ Dependency packages that the environment may require：
 `<2. sh run_test_regdb.sh for RegDB>`  
 
 # Notice 
-When we use the RegDB dataset for training or testing, we need to switch to a different branch network when query is visible or infrared. The Settings on Gallary are similar. We have some trained models available on Baidu  disk。
+When we use the RegDB dataset for training or testing, we need to switch to a different branch network when query is visible or infrared. The Settings on Gallary are similar. We have some trained models available on ！[Badi du disk](https://pan.baidu.com/s/12_Kudw-4WveWr7XjpuUNkA )。code：REID
