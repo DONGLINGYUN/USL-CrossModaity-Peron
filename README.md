@@ -7,10 +7,14 @@
 # Requirement
 Dependency packages that the environment may require：
 [requirement.txt](./requirement.txt)
+# Dataset 
+SYSU-MM01 and RegDB. 
+Put SYSU-MM01 and RegDB dataset into data/sysu and data/regdb, run prepare\_sysu.py and prepare\_regdb.py to prepare the training data (convert to market1501 format).
 
 # Train
 `<1. sh run_train_sysu.sh for SYSU-MM01>`  
 `<2. sh run_train_regdb.sh for RegD >`  
+
 
 `<hello world>`  
 
