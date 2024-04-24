@@ -489,7 +489,7 @@ def main_worker_stage1(args, log_s1_name):
         cluster_features_ir = generate_cluster_features(pseudo_labels_ir, features_ir)
         cluster_features_rgb = generate_cluster_features(pseudo_labels_rgb, features_rgb)
 
-        args.memorybank = 'hybrid1'
+        args.memorybank = 'noraml'
         args.use_hard = False
 
         memory_ir = ClusterMemory(model.module.num_features, num_cluster_ir, temp=args.temp,
@@ -842,7 +842,7 @@ def main_worker_stage2(args, log_s1_name, log_s2_name):
         num_classes = rgb_num_classes
         print(num_classes)
         model.module.classifier = nn.Linear(2048, num_classes).cuda()
-        ###################################Adaptive ratio Module
+        ###################################Adaptive ratio Module in CCPG
         cluster_loader_labelir = get_test_loader(dataset_ir, args.height, args.width,
                                                  256, args.workers,
                                                  testset=sorted(dataset_label_ir))
@@ -853,11 +853,11 @@ def main_worker_stage2(args, log_s1_name, log_s2_name):
                                                        search_option=3)  # rerank_dist_all_jacard[features_rgb.size(0):,features_rgb.size(0):]#
         pseudo_labelir = cluster_ir.fit_predict(rerank_dist_labelir)
         ir_score = silhouette_score(featureslabelir, pseudo_labelir)
-        # print("伪标签ir轮廓系数:", ir_score)
+        
         tir_score = silhouette_score(featureslabelir, irtruth_label)
-        # print("真实标签ir轮廓系数:", tir_score)
+        
         ir_rate = ir_score / tir_score
-        # print("轮廓系数IR图像比值:", ir_rate)
+        
         cluster_loader_labelrgb = get_test_loader(dataset_rgb, args.height, args.width,
                                                   256, args.workers,
                                                   testset=sorted(dataset_label_rgb))
@@ -869,11 +869,11 @@ def main_worker_stage2(args, log_s1_name, log_s2_name):
                                                         search_option=3)  # rerank_dist_all_jacard[features_rgb.size(0):,features_rgb.size(0):]#
         pseudo_labels_labelrgb = cluster_ir.fit_predict(rerank_dist_labelrgb)
         rgb_score = silhouette_score(featureslabelrgb, pseudo_labels_labelrgb)
-        # print("伪标签rgb轮廓系数:", rgb_score)
+        
         trgb_score = silhouette_score(featureslabelrgb, truth_label)
-        # print("真实标rgb签轮廓系数:", trgb_score)
+        
         rgb_rate = rgb_score / trgb_score
-        # print("轮廓系数rgb比率：", rgb_rate)
+       
         dist_tcm = np.matmul(featureslabelrgb.numpy(), np.transpose(featureslabelir.numpy()))
         idx1, idx2, dist_list = select_merge_data(dist_tcm)
         del featureslabelrgb, featureslabelir
@@ -884,9 +884,8 @@ def main_worker_stage2(args, log_s1_name, log_s2_name):
         #lenth_ratio = (ir_rate + rgb_rate) / 2
         lenth_ratio = 1.0
 
-        # print('数据选取比例',lenth_ratio)
-        # print("相似度自适应选取:",ratio)
-        ###################################CMA
+        
+        ###################################CCPG
         if epoch >= 0:
             print('CMA: aggregate ir and rgb momery'.format(epoch, num_cluster_ir))
             dist_cm = np.matmul(features_rgb.numpy(), np.transpose(features_ir.numpy()))
