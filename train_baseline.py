@@ -947,7 +947,7 @@ def main_worker_stage2(args, log_s1_name, log_s2_name):
         ########################
         if epoch >= 0:
             ######################## PGM
-            print("Progressive Graph Matching")
+            
             i2r = {}
             r2i = {}
             R = []
