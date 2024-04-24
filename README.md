@@ -14,8 +14,8 @@ Put SYSU-MM01 and RegDB dataset into data/sysu and data/regdb, run prepare\_sysu
 
 # Train 
 1. sh [run\_train\_regdb.sh](run_train_regdb.sh) for RegDB
-2. sh [run\_train\_sysu.sh](run_train.sysu.sh) for SYSU-MM01
+2. sh [run\_train\_sysu.sh](./run_train_sysu.sh) for SYSU-MM01
 
 # Test 
-1. sh [run\_test\_regdb.sh](run_test.regdb.sh) for RegDB
-2. sh [run\_test\_sysu.sh ](run_test.sysu.sh)for SYSU-MM01
+1. sh [run\_test\_regdb.sh](./run_test_regdb.sh) for RegDB
+2. sh [run\_test\_sysu.sh ](./run_test_sysu.sh)for SYSU-MM01
