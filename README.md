@@ -4,7 +4,7 @@ generation module and semi-supervised cross-modality discriminant feature learni
 exploit discriminant information present in labeled and pseudo-labeled data, thereby ensuring the discriminative capability of the learned model.
 
 # Framework
-！[framework](Framework.JPG)
+![framework](Framework.JPG)
 
 # Requirement
 Dependency packages that the environment may require: [requirements.txt](./requirements.txt)
