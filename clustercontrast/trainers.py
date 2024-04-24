@@ -243,7 +243,9 @@ class ClusterContrastTrainer_ADCA_joint(object):
             # -------------------------------
             _,f_out_rgb,f_out_ir,labels_rgb,labels_ir,pool_rgb,pool_ir,cls_score,label_data = self._forward(inputs_rgb,inputs_ir,label_1=labels_rgb,label_2=labels_ir,modal=0)
             # _,f_out_rgb,f_out_ir,labels_rgb,labels_ir,pool_rgb,pool_ir = self._forward(inputs_rgb,inputs_ir,label_1=labels_rgb,label_2=labels_ir,modal=0)
-
+            
+            #The class center losses of static and dynamic memery banks are calculated based on the class centers of the memory banks of the pseudo-label indexes ir and visible.
+            #L_dyn and L_sta calculate the final sum according to the loss_ir and loss_rgb respectively.
             loss_ir = self.memory_ir(f_out_ir, labels_ir) 
             loss_rgb = self.memory_rgb(f_out_rgb, labels_rgb)
 
@@ -251,6 +253,7 @@ class ClusterContrastTrainer_ADCA_joint(object):
             # loss_ll,_,_ = self.cc_loss(cls_score,targets)
             #loss_ll = self.lable_loss(cls_score,targets)
             # loss_ll = self.dcn(cls_score,targets)
+            #Calculate the loss of labeled data
             loss_ll = self.id(cls_score,targets)
             loss_tri,batch_acc = self.tri(label_data,targets)
             correct += (batch_acc / 2)
@@ -259,7 +262,7 @@ class ClusterContrastTrainer_ADCA_joint(object):
             bat = int(labels_rgb.size(0) / 2)
 
             ##-#-------------------------------------------
-            # cross contrastive learning
+            # Calculate class center losses based on mapping data
             if r2i:
                 rgb2ir_labels = torch.tensor([r2i[key.item()] for key in labels_rgb]).cuda()
                 ir2rgb_labels = torch.tensor([i2r[key.item()] for key in labels_ir]).cuda()
@@ -314,7 +317,7 @@ class ClusterContrastTrainer_ADCA_joint(object):
             else:
                 cross_loss = torch.tensor(0.0)
                 c_loss = torch.tensor(0.0)
-
+            
             loss = loss_ir+loss_rgb+loss_ll+0.25*cross_loss# + 0.25*c_loss+loss_tri
             optimizer.zero_grad()
             loss.backward()
