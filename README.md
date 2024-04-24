@@ -10,7 +10,7 @@ exploit discriminant information present in labeled and pseudo-labeled data, the
 Dependency packages that the environment may require: [requirements.txt](./requirements.txt)
 
 # Dataset processing
-Put dataset into folder data, run  prepare_data.py to prepare the training data (convert to market1501 format).
+First, create a data folder. Then put dataset into folder data. Finally run  prepare_data.py to prepare the training data (convert to market1501 format).
 
 # Train 
 1. sh [run\_train.sh](run_train.sh) for train
