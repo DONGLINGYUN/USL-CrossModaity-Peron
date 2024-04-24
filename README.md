@@ -10,7 +10,7 @@ exploit discriminant information present in labeled and pseudo-labeled data, the
 Dependency packages that the environment may require: [requirements.txt](./requirements.txt)
 
 # Dataset processing
-Put SYSU-MM01 and RegDB dataset into data/sysu and data/regdb, run prepare\_sysu.py and prepare\_regdb.py to prepare the training data (convert to market1501 format).
+Put RegDB and SYSU-MM01 dataset into data/sysu and data/regdb, run prepare\_sysu.py and prepare\_regdb.py to prepare the training data (convert to market1501 format).
 
 # Train 
 1. sh [run\_train\_regdb.sh](run_train_regdb.sh) for RegDB
