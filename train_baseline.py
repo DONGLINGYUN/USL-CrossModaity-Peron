@@ -902,8 +902,8 @@ def main_worker_stage2(args, log_s1_name, log_s2_name):
             del dist_cm
             rgb_label_cnt = Counter(rgb_label)
             ir_label_cnt = Counter(ir_label)
-            idx_lenth = np.sum(dist_list >= ratio)
-            # idx_lenth = np.sum(dist_list >0.5)
+            #idx_lenth = np.sum(dist_list >= ratio)
+            idx_lenth = np.sum(dist_list >0.5)
             dist_list = dist_list[:idx_lenth]
             rgb2ir_label = [(i, j) for i, j in zip(np.array(pseudo_labels_rgb)[idx1[:idx_lenth]],
                                                    np.array(pseudo_labels_ir)[idx2[:idx_lenth]])]
