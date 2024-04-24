@@ -1,4 +1,0 @@
-==========
-Args:Namespace(arch='resnet50', batch_size=2, data_dir='E:\\SSL\\github\\label_graph\\data', dataset='dukemtmcreid', dropout=0, epochs=50, eps=0.6, eps_gap=0.02, eval_step=1, features=0, height=288, iters=400, k1=30, k2=6, logs_dir='./logs/regdb_s1\\1', lr=0.00035, memorybank='hybrid', momentum=0.2, no_cam=False, num_instances=4, pooling_type='gem', print_freq=50, rate=0.3, seed=1, step_size=20, temp=0.05, trial=1, use_hard=False, weight_decay=0.0005, width=144, workers=0)
-==========
-==> Load unlabeled dataset
